@@ -35,12 +35,19 @@ export const useAppStore = defineStore('app', () => {
   const isUserLogin = ref(false);
   let serialId = 0;
 
+
+  // if (userData.value != undefined) {
+  //   userData.value.name = 'Sakai Kotaro';
+  // }
   // userData.value = ref<UserData>({
   //   id: 'John',
   //   name: 'Doe',
   //   color: 'red--text text--lighten-1',
   // });
 
+  /**
+   * 匿名でサインインする
+   */
   const OnSignInAnonymously = () => {
     signInAnonymously(getAuth())
     .then((userCredential) => {
@@ -58,6 +65,9 @@ export const useAppStore = defineStore('app', () => {
     });  
   }
 
+  /**
+   * サインインする
+   */
   const onSignIn = (emailText: string, passwordText: string) => {
     {
       if ( emailText == "" || passwordText == "" ) return;
@@ -76,6 +86,9 @@ export const useAppStore = defineStore('app', () => {
     }
   }
 
+  /**
+   * アカウントを作成する
+   */
   const onCreateAccount = (emailText: string, passwordText: string) => {
     {
       if ( emailText == "" || passwordText == "" ) return;
@@ -94,6 +107,9 @@ export const useAppStore = defineStore('app', () => {
     }
   }
 
+  /**
+   * サインアウトする
+   */
   const onSignOut = async () => {
     try {
       await getAuth().signOut();
@@ -137,6 +153,9 @@ export const useAppStore = defineStore('app', () => {
     tasks.value = tasks.value.filter(task => task.id !== id);
   }
 
+  /**
+   * メッセージを追加する.
+   */
   const addComment = (message: string): void => {
     serialId++;
     addCommentDB(serialId, message);
