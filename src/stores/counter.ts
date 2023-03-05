@@ -41,8 +41,6 @@ export const useAppStore = defineStore('app', () => {
   //   color: 'red--text text--lighten-1',
   // });
 
-  // userData.value.id =  
-
   const OnSignInAnonymously = () => {
     signInAnonymously(getAuth())
     .then((userCredential) => {
