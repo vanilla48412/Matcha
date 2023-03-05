@@ -5,7 +5,7 @@ import { collection, getDocs, setDoc, doc, query, orderBy, limit, Timestamp } fr
 import firebase from '../firebase/config';
 import { auth } from '../firebase/config';
 import { updateDoc, getFirestore, serverTimestamp } from "firebase/firestore";
-import { getAuth, signOut, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, signInAnonymously } from "firebase/auth";
+import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, signInAnonymously } from "firebase/auth";
 
 // 型定義
 interface Task {
